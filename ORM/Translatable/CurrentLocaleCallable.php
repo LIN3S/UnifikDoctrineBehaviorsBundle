@@ -35,11 +35,6 @@ class CurrentLocaleCallable
 
         $request = $this->container->get('request');
 
-        // In the Backend application, we want the editLocale
-        if ($this->container->get('unifik_system.core')->isLoaded() && $this->container->get('unifik_system.core')->getCurrentAppName() == 'backend') {
-            return $this->container->get('unifik_backend.core')->getEditLocale();
-        }
-
         // Request Locale
         if ($locale = $request->getLocale()) {
             return $locale;
